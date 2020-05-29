@@ -7,8 +7,8 @@ export default GAME => {
     const ctx = buffer.getContext('2d')
     ctx.scale(GAME.scale, GAME.scale)
     ctx.imageSmoothingEnabled = false
-    ctx.webkitImageSmoothingEnabled = false;
-    ctx.mozImageSmoothingEnabled = false;
+    ctx.webkitImageSmoothingEnabled = false
+    ctx.mozImageSmoothingEnabled = false
     const size = GAME.map.tilewidth
     GAME.map.layers.forEach(layer => {
         layer.data.forEach((tile_id, i) => {

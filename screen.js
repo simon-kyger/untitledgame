@@ -9,8 +9,8 @@ const resize = () => {
     screen.width = window.innerWidth
     screen.height = window.innerHeight
     ctx.imageSmoothingEnabled = false
-    ctx.webkitImageSmoothingEnabled = false;
-    ctx.mozImageSmoothingEnabled = false;
+    ctx.webkitImageSmoothingEnabled = false
+    ctx.mozImageSmoothingEnabled = false
 }
 
 resize()

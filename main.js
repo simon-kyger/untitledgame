@@ -9,7 +9,8 @@ import keyboard from './keyboard.js'
 const GAME = {}
 GAME.scale = 4
 GAME.debug = false
-GAME.screen = screen;
+GAME.screen = screen
+GAME.dt = 1/60
 
 const start = async () => {
     GAME.data = await load_json(`./data/default_save.json`)
