@@ -1,0 +1,25 @@
+{
+    "current_zone": "town",
+    "player": {
+        "x": 200,
+        "y": 200
+    },
+    "controls": {
+        "left": {
+            "key": "a",
+            "state": false
+        },
+        "right": {
+            "key": "d",
+            "state": false
+        },
+        "up": {
+            "key": "w",
+            "state": false
+        },
+        "down": {
+            "key": "s",
+            "state": false
+        }
+    }
+}
