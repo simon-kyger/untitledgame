@@ -8,16 +8,21 @@ import camera from './camera.js'
 
 
 const GAME = {}
-GAME.scale = 4
-GAME.debug = false
+GAME.scale = 1
+GAME.debug = true
 GAME.screen = screen
 GAME.dt = 1/60
+GAME.resolution = {
+    width: 640,
+    height: 360
+}
 
 const start = async () => {
     GAME.data = await load_json(`./data/default_save.json`)
     GAME.map = await load_json(`./data/${GAME.data.current_zone}.json`)
     GAME.images = await load_image(`./images/tiles.png`)
     GAME.entities = new Map
+    GAME.screen = screen(GAME)
     GAME.keyboard = keyboard(GAME)
     GAME.entities.set('map', map(GAME))
     GAME.entities.set('player', player(GAME))

@@ -1,7 +1,7 @@
 import entity from './entity.js'
 
 export default GAME => {
-    const e = entity()
+    const e = entity(null, 0, 0, GAME.resolution.width, GAME.resolution.height)
     e.update = function(dt){
         this.x = e.target.x
         this.y = e.target.y

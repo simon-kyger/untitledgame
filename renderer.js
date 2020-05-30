@@ -1,6 +1,5 @@
 export default (screen, entities) => {
-    screen.repaint()
     entities.forEach(entity => {
-        entity?.render?.(screen.ctx)
+        entity?.render?.(screen.image.getContext('2d'))
     })
 }
