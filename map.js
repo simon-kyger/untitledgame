@@ -31,5 +31,10 @@ export default GAME => {
             )
         })
     })
-    return entity(buffer, 0, 0, buffer.width, buffer.height)
+    const e = entity(buffer, 0, 0, buffer.width, buffer.height)
+    e.update = function(dt){
+        this.x = -GAME.entities.get('camera').x
+        this.y = -GAME.entities.get('camera').y
+    }
+    return e
 }
