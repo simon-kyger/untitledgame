@@ -13,7 +13,7 @@ export default GAME => {
             update(GAME.dt, GAME.entities)
             frame_time -= GAME.dt
         }
-        renderer(GAME.screen, GAME.entities)
+        renderer(GAME)
         last_time = time
         //setTimeout(tick, 1000/500, performance.now())
         requestAnimationFrame(tick)

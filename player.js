@@ -21,19 +21,16 @@ export default GAME => {
             this.x += this.speed * dt
         if (this.x < 0) this.x = 0
         if (this.y < 0) this.y = 0
-        if (this.x > GAME.entities.get('map').width)
-            this.x = GAME.entities.get('map').width
-        if (this.y > GAME.entities.get('map').height)
-            this.y = GAME.entities.get('map').height
+        if (this.x > GAME.entities.get('map').width - this.width)
+            this.x = GAME.entities.get('map').width - this.width
+        if (this.y > GAME.entities.get('map').height - this.height)
+            this.y = GAME.entities.get('map').height - this.height
         this.x = Math.floor(this.x)
         this.y = Math.floor(this.y)
     }
     player.render = function(ctx){
-        ctx.save()
         ctx.fillStyle = 'red'
-        ctx.fillRect(GAME.map.tilewidth*8, GAME.map.tilewidth*8, this.width, this.height)
-        ctx.restore()
-        console.log(this.x, this.y)
+        ctx.fillRect(this.x, this.y, this.width, this.height)
     }
     return player
 }
