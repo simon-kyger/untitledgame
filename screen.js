@@ -1,4 +1,5 @@
 export default GAME => {
+    const screen = {}
     screen.image = document.createElement('canvas')
     screen.image.id = 'game'
     screen.image.style.display = 'block'
