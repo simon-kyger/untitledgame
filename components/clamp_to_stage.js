@@ -1,5 +1,5 @@
 export default GAME => {
-    return function(entity){
+    return entity => {
         const map = GAME.entities.get('map')
         if (entity.x < 0) entity.x = 0
         if (entity.y < 0) entity.y = 0

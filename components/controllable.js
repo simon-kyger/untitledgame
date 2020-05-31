@@ -1,5 +1,5 @@
 export default GAME => {
-    return function(entity){
+    return entity => {
         const k = GAME.keyboard
         if (k.up.state)
             entity.y -= entity.speed * GAME.dt
