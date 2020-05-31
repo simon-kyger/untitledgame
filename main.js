@@ -9,7 +9,7 @@ import camera from './camera.js'
 
 const GAME = {}
 GAME.scale = 1
-GAME.debug = true
+GAME.debug = false
 GAME.dt = 1/60
 GAME.resolution = {
     width: 640,
