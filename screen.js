@@ -1,7 +1,4 @@
-import entity from './entity.js'
-
 export default GAME => {
-    const screen = entity(null, 0, 0, GAME.resolution.width, GAME.resolution.height)
     screen.image = document.createElement('canvas')
     screen.image.id = 'game'
     screen.image.style.display = 'block'
