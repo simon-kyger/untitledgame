@@ -7,7 +7,5 @@ export default GAME => {
             entity.x = map.width - entity.width
         if (entity.y > map.height - entity.height)
             entity.y = map.height - entity.height
-        entity.x = Math.floor(entity.x)
-        entity.y = Math.floor(entity.y)
     }
 }

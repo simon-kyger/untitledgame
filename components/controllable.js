@@ -9,5 +9,7 @@ export default GAME => {
             entity.x -= entity.speed * GAME.dt
         if (k.right.state)
             entity.x += entity.speed * GAME.dt
+        entity.x = Math.round(entity.x)
+        entity.y = Math.round(entity.y)
     }
 }
