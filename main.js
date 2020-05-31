@@ -26,7 +26,8 @@ const start = async () => {
     GAME.entities.set('map', map(GAME))
     GAME.entities.set('player', player(GAME))
     GAME.entities.set('camera', camera(GAME))
-    tick(GAME)()
+    GAME.tick = tick(GAME)
+    GAME.tick()
 }
 
 start()
