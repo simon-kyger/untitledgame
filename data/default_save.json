@@ -1,8 +1,8 @@
 {
     "current_zone": "town",
     "player": {
-        "x": 200,
-        "y": 200
+        "x": 0,
+        "y": 0
     },
     "controls": {
         "left": {
