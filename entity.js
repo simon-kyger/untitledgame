@@ -8,14 +8,23 @@ export default (image, x = 0, y = 0, width = 100, height = 100) => {
         width: width,
         height: height,
         components: new Map,
-        add_component: function(component, GAME){
-            this.components.set(component, components[component](GAME))
+        add_component: function(component){
+            if (typeof components[component] === 'undefined')
+                throw new Exception(`unknown component: ${component}`)
+            this.components.set(component, components[component].bind(this))
         },
         remove_component: function(component){
+            if (typeof this.components.get(component) === 'undefined'){
+                console.warn(`attempted to remove component which did not exist on: ${this}`, 
+                            `component: ${component}`)
+                return
+            }
             this.components.delete(component)
         },
-        update: function(dt) {
-            this.components.forEach(component => component(this))
+        update: function(GAME) {
+            this.components.forEach(component => {
+                component(GAME)
+            })
         },
         render: function(ctx){
             if (this.image)

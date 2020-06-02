@@ -1,5 +1,5 @@
-export default (dt = 1/60, entities) => {
-    entities.forEach(entity => {
-        if (entity.update) entity.update(dt)
+export default GAME => {
+    GAME.entities.forEach(entity => {
+        if (entity.update) entity.update(GAME)
     })
 } 

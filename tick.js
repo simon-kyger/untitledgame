@@ -10,7 +10,7 @@ export default GAME => {
         frame_time += (time - last_time) / 1000
         if (frame_time > 200) frame_time = 200
         while (frame_time > GAME.dt){
-            update(GAME.dt, GAME.entities)
+            update(GAME)
             frame_time -= GAME.dt
         }
         renderer(GAME)
