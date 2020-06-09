@@ -3,12 +3,23 @@
     "player": {
         "x": 0,
         "y": 0,
+        "width": 16,
+        "height": 24,
         "components": [
             "controllable",
-            "clamp_to_stage"
+            "clamp_to_stage",
+            "move_to"
         ]
     },
     "controls": {
+        "ability1": {
+            "key": "lmb",
+            "state": "false"
+        },
+        "ability2": {
+            "key": "rmb",
+            "state": "false"
+        },
         "left": {
             "key": "a",
             "state": false

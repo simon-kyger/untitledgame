@@ -5,6 +5,7 @@ import map from './map.js'
 import player from './player.js'
 import keyboard from './keyboard.js'
 import camera from './camera.js'
+import mouse from './mouse.js'
 
 
 const GAME = {}
@@ -22,10 +23,11 @@ const start = async () => {
     GAME.images = await load_image(`./images/tiles.png`)
     GAME.entities = new Map
     GAME.screen = screen(GAME)
-    GAME.keyboard = keyboard(GAME)
     GAME.entities.set('map', map(GAME))
     GAME.entities.set('player', player(GAME))
     GAME.entities.set('camera', camera(GAME))
+    GAME.mouse = mouse(GAME)
+    GAME.keyboard = keyboard(GAME)
     GAME.tick = tick(GAME)
     GAME.tick()
 }
