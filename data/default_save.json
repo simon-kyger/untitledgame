@@ -5,10 +5,11 @@
         "y": 0,
         "width": 16,
         "height": 24,
+        "speed": 127,
         "components": [
             "controllable",
-            "clamp_to_stage",
-            "move_to"
+            "move_to",
+            "clamp_to_stage"
         ]
     },
     "controls": {

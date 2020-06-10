@@ -28,7 +28,7 @@ export default (image, x = 0, y = 0, width = 100, height = 100) => {
         },
         render: function(ctx){
             if (this.image)
-                ctx.drawImage(this.image, this.x, this.y, this.width, this.height)
+                ctx.drawImage(this.image, Math.round(this.x), Math.round(this.y), this.width, this.height)
         }
     }
 }

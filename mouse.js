@@ -1,19 +1,17 @@
 export default GAME => {
     GAME.screen.image.oncontextmenu = () => false
     GAME.screen.image.addEventListener('mousedown', e => {
-        const player = GAME.entities.get('player')
         const camera = GAME.entities.get('camera')
-        //TODO: this is wrong
-        const x = Math.floor(((e.offsetX / GAME.screen.image.style.width.slice(0, -2)) * GAME.resolution.width) + camera.x)
-        const y = Math.floor(((e.offsetY / GAME.screen.image.style.height.slice(0, -2)) * GAME.resolution.height) + camera.y)
-        console.log('e.offsetX', e.offsetX)
-        console.log('e.offsetY', e.offsetY)
-        console.log('clicked here: x', x, 'y', y)
+        const screen_style = GAME.screen.image.style
+        const resolution = GAME.resolution
+        const x = Math.round(e.offsetX / screen_style.width.slice(0, -2) * resolution.width + camera.x)
+        const y = Math.round(e.offsetY / screen_style.height.slice(0, -2) * resolution.height + camera.y)
+        console.log('x ', x, 'y ', y)
         switch (e.button) {
             case 0:
-                player.set_destination(x, y)
                 break;
             case 2:
+                GAME.entities.get('player').set_destination(x, y)
                 break;
         }
     })
