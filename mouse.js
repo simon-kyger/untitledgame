@@ -6,7 +6,7 @@ export default GAME => {
         //TODO: this is wrong
         const x = Math.floor(e.offsetX)
         const y = Math.floor(e.offsetY)
-        console.log('x', x, 'y', y)
+        console.log('clicked here: x', x, 'y', y)
         switch (e.button) {
             case 0:
                 player.set_destination(x, y)
