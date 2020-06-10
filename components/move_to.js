@@ -12,8 +12,6 @@ export default function(GAME){
         this.y-= Math.round(this.speed*GAME.dt)
         
     if (this.destination.x == this.x && this.destination.y == this.y){
-        console.log('YAY!')
-        console.log('this.x: ', this.x, 'this.y: ', this.y)
         this.destination = null
     }
 }
