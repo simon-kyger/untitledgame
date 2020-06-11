@@ -1,5 +1,5 @@
 export default function(GAME){
-    const k = GAME.keyboard
+    const k = GAME.entities.get('keyboard')
     if (k.up.state)
         this.y -= this.speed * GAME.dt
     if (k.down.state)

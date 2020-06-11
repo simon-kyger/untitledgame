@@ -9,29 +9,25 @@ const clamp = (coordinate, min, max) => {
 }
 
 export default GAME => {
-    const e = entity(null, 0, 0, GAME.screen.image.width, GAME.screen.image.height)
+    const screen = GAME.entities.get('screen')
+    const map = GAME.entities.get('map')
+    const player = GAME.entities.get('player')
+    const e = entity(null, 0, 0, screen.image.width, screen.image.height)
     e.update = function(dt){
         this.x = clamp(
-            this.target.x - GAME.screen.image.width/2 + this.target.width /2,
+            this.target.x - screen.image.width/2 + this.target.width /2,
             0,
-            GAME.entities.get('map').width - GAME.screen.image.width
+            map.width - screen.image.width
         )
         this.y = clamp(
-            this.target.y - GAME.screen.image.height/2 + this.target.height /2,
+            this.target.y - screen.image.height/2 + this.target.height /2,
             0,
-            GAME.entities.get('map').height - GAME.screen.image.height
+            map.height - screen.image.height
         )
     }
     e.set_target = function(target){
         this.target = target
     }
-    e.set_target(GAME.entities.get('player'))
-    if (GAME.debug)
-        e.render = function(ctx){
-            ctx.save()
-            ctx.fillStyle = '#000'
-            ctx.strokeRect(this.x, this.y, this.width, this.height)
-            ctx.restore()
-        }
+    e.set_target(player)
     return e
 }

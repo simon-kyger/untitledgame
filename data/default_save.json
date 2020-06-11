@@ -12,37 +12,5 @@
             "clamp_to_stage",
             "mouse_move"
         ]
-    },
-    "controls": {
-        "mouse": {
-            "lmb": {
-                "key": 0,
-                "state": false,
-                "func": "move_to"
-            },
-            "rmb": {
-                "key": 2,
-                "state": false,
-                "func": ""
-            }
-        },
-        "keyboard": {
-            "left": {
-                "key": "a",
-                "state": false
-            },
-            "right": {
-                "key": "d",
-                "state": false
-            },
-            "up": {
-                "key": "w",
-                "state": false
-            },
-            "down": {
-                "key": "s",
-                "state": false
-            }
-        }
     }
 }

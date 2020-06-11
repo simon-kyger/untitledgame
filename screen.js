@@ -26,8 +26,8 @@ export default GAME => {
         else
             h = w / ratio
         
-        screen.image.width = GAME.resolution.width
-        screen.image.height = GAME.resolution.height
+        screen.image.width = GAME.settings.resolution.width
+        screen.image.height = GAME.settings.resolution.height
         screen.image.style.imageRendering = `pixelated`
         screen.image.style.width = `${w}px`
         screen.image.style.height = `${h}px`

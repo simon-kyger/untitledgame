@@ -2,8 +2,8 @@ import entity from './entity.js'
 
 export default GAME => {
     const buffer = document.createElement('canvas')
-    buffer.width = GAME.map.width * GAME.map.tilewidth * GAME.scale
-    buffer.height = GAME.map.height * GAME.map.tileheight * GAME.scale
+    buffer.width = GAME.map.width * GAME.map.tilewidth * GAME.settings.scale
+    buffer.height = GAME.map.height * GAME.map.tileheight * GAME.settings.scale
     const ctx = buffer.getContext('2d')
     ctx.scale(GAME.scale, GAME.scale)
     ctx.imageSmoothingEnabled = false

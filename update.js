@@ -1,5 +1,9 @@
 export default GAME => {
+    if (GAME.paused){
+        GAME.entities.get('ui').update(GAME)
+        return
+    }
     GAME.entities.forEach(entity => {
-        if (entity.update) entity.update(GAME)
+        entity?.update?.(GAME)
     })
 } 
