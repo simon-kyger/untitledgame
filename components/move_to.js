@@ -1,5 +1,3 @@
-let timer = null
-let cx1, cx2, cx3, cx4 = null
 export default function(GAME){
     if (!this.destination) return
     if (this.destination.x > this.x)

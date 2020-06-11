@@ -1,6 +1,6 @@
 
 export default GAME => {
-    const keyboard = GAME.data.controls
+    const keyboard = GAME.data.controls.keyboard
     keyboard.set = function(key, newkey){
         if (Object.keys(this).filter(e => e == key).length)
             this[key] = newkey 

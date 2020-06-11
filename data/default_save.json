@@ -9,33 +9,40 @@
         "components": [
             "controllable",
             "move_to",
-            "clamp_to_stage"
+            "clamp_to_stage",
+            "mouse_move"
         ]
     },
     "controls": {
-        "ability1": {
-            "key": "lmb",
-            "state": "false"
+        "mouse": {
+            "lmb": {
+                "key": 0,
+                "state": false,
+                "func": "move_to"
+            },
+            "rmb": {
+                "key": 2,
+                "state": false,
+                "func": ""
+            }
         },
-        "ability2": {
-            "key": "rmb",
-            "state": "false"
-        },
-        "left": {
-            "key": "a",
-            "state": false
-        },
-        "right": {
-            "key": "d",
-            "state": false
-        },
-        "up": {
-            "key": "w",
-            "state": false
-        },
-        "down": {
-            "key": "s",
-            "state": false
+        "keyboard": {
+            "left": {
+                "key": "a",
+                "state": false
+            },
+            "right": {
+                "key": "d",
+                "state": false
+            },
+            "up": {
+                "key": "w",
+                "state": false
+            },
+            "down": {
+                "key": "s",
+                "state": false
+            }
         }
     }
 }
