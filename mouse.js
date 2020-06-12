@@ -6,14 +6,15 @@ export default GAME => {
     const camera = GAME.entities.get('camera')
     const screen = GAME.entities.get('screen')
     const resolution = GAME.settings.resolution
+    mouse.x = mouse.y = mouse.offsetX = mouse.offsetY = 0
     mouse.set = function(key, newkey){
         if (Object.keys(this).filter(e => e == key).length)
             this[key] = newkey 
-        else throw Exception(`unkown key ${key}`)
+        else throw new Exception(`unkown key ${key}`)
     }
     mouse.update = function(){
-        this.x = Math.round(this.offsetX / screen.image.style.width.slice(0, -2) * resolution.width + camera.x)
-        this.y = Math.round(this.offsetY / screen.image.style.height.slice(0, -2) * resolution.height + camera.y)
+        this.x = Math.floor(this.offsetX / screen.image.style_width * resolution.width + camera.x)
+        this.y = Math.floor(this.offsetY / screen.image.style_height * resolution.height + camera.y)
     }
     mouse.render = function(){
         //console.log(this.x, this.y)
@@ -42,5 +43,16 @@ export default GAME => {
         mouse.offsetX = e.offsetX
         mouse.offsetY = e.offsetY
     })
+    window.onmouseout = function(e){
+        if(e.clientY <= 0 || e.clientX <= 0 || e.clientX >= window.innerWidth || e.clientY >= window.innerHeight){
+
+            mouse.lmb.state = false
+            mouse.rmb.state = false
+            mouse.x = player.x
+            mouse.y = player.y
+            player.set_destination(player.x, player.y)
+            camera.lock_target = true
+        }
+    }
     return mouse
 }

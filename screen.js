@@ -31,6 +31,8 @@ export default GAME => {
         screen.image.style.imageRendering = `pixelated`
         screen.image.style.width = `${w}px`
         screen.image.style.height = `${h}px`
+        screen.image.style_width = w
+        screen.image.style_height = h
     }
 
     resize()
