@@ -1,8 +1,9 @@
 import entity from './entity.js'
+import map from './map.js'
 
 export default GAME => {
     const mouse = GAME.settings.controls.mouse
-    const player = GAME.entities.get('player')
+    const map = GAME.entities.get('map')
     const camera = GAME.entities.get('camera')
     const screen = GAME.entities.get('screen')
     const resolution = GAME.settings.resolution
@@ -13,8 +14,10 @@ export default GAME => {
         else throw new Exception(`unkown key ${key}`)
     }
     mouse.update = function(){
-        this.x = Math.floor(this.offsetX / screen.image.style_width * resolution.width + camera.x)
-        this.y = Math.floor(this.offsetY / screen.image.style_height * resolution.height + camera.y)
+        const x = Math.floor(this.offsetX / screen.image.style_width * resolution.width + camera.x)
+        const y = Math.floor(this.offsetY / screen.image.style_height * resolution.height + camera.y)
+        this.x = x < 0 ? 0 : x > map.width ? map.width : x
+        this.y = y < 0 ? 0 : y > map.height ? map.height : y
     }
     mouse.render = function(){
         //console.log(this.x, this.y)
@@ -43,16 +46,14 @@ export default GAME => {
         mouse.offsetX = e.offsetX
         mouse.offsetY = e.offsetY
     })
-    window.onmouseout = function(e){
-        if(e.clientY <= 0 || e.clientX <= 0 || e.clientX >= window.innerWidth || e.clientY >= window.innerHeight){
-
-            mouse.lmb.state = false
-            mouse.rmb.state = false
-            mouse.x = player.x
-            mouse.y = player.y
-            player.set_destination(player.x, player.y)
-            camera.lock_target = true
-        }
+    screen.image.onmouseout = function(e){
+        mouse.lmb.state = false
+        mouse.rmb.state = false
+        camera.remove_component('follow_target')
+        camera.target.set_destination(camera.target.x, camera.target.y)
+    }
+    screen.image.onmouseover = function(e){
+        camera.add_component('follow_target')
     }
     return mouse
 }

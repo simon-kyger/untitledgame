@@ -25,6 +25,8 @@ const start = async () => {
     GAME.entities.set('mouse', mouse(GAME))
     GAME.entities.set('keyboard', keyboard(GAME))
     GAME.entities.set('ui', ui.settings(GAME))
+    if (GAME.settings.debug)
+        GAME.entities.set('debug', ui.debug(GAME))
     GAME.tick = tick(GAME)
     GAME.tick()
 }
