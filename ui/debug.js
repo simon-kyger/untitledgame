@@ -19,7 +19,7 @@ export default GAME => {
             `DEBUG:`,
             `player: { x: ${player.x}, y: ${player.y} }`,
             `mouse:  { x: ${mouse.x},  y: ${mouse.y} }`,
-            `camera: { x: ${camera.x}, y: ${camera.y}, last_delta_x: ${camera.last_delta_x}, last_delta_y: ${camera.last_delta_y} }`,
+            `camera: { x: ${camera.x}, y: ${camera.y}, a_x: ${camera.a_x}, a_y: ${camera.a_y}, last_delta_x: ${camera.last_delta_x}, last_delta_y: ${camera.last_delta_y} }`,
         ]
         content.forEach((line,index) => {
             ctx.fillText(line, this.x, this.y + (index*fontsize) + fontsize)

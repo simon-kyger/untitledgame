@@ -14,25 +14,28 @@ export default function(GAME){
     if (!mouse || !mouse.offsetX || !mouse.offsetY) {
         return
     }
+    if (!this.target)
+        throw new Exception('no target applied to main camera')
     
-    const screen_x = Math.floor(mouse.offsetX / screen.image.style_width * resolution.width)
-    const screen_y = Math.floor(mouse.offsetY / screen.image.style_height * resolution.height)
-    const camera_center_x = this.x + (this.width / 2)
-    const camera_center_y = this.y + (this.height / 2)
+    this.screen_x = Math.floor(mouse.offsetX / screen.image.style_width * resolution.width)
+    this.screen_y = Math.floor(mouse.offsetY / screen.image.style_height * resolution.height)
     let x = 0;
     let y = 0;
-    const a_x = Math.abs(screen_x - (resolution.width/2))
-    const a_y = Math.abs(screen_y - (resolution.height/2))
-    if(a_x > this.threshold)
-        x = screen_x - resolution.width/2
-    if(a_y > this.threshold)
-        y = screen_y - resolution.height/2
+    this.a_x = Math.abs(this.screen_x - (resolution.width/2))
+    this.a_y = Math.abs(this.screen_y - (resolution.height/2))
+    if(this.a_x > this.threshold)
+        x = this.screen_x - resolution.width/2 - this.target.width/2
+    if(this.a_y > this.threshold)
+        y = this.screen_y - resolution.height/2 - this.target.height/2
     this.x += Math.floor(this.speed*GAME.dt*x)
     this.y += Math.floor(this.speed*GAME.dt*y)
     if (this.target.destination){
         this.x = clamp(this.target.x - this.last_delta_x, 0, map.width - screen.image.width)
         this.y = clamp(this.target.y - this.last_delta_y, 0, map.height - screen.image.height)
     }
+    
+    const camera_center_x = this.x + (this.width / 2)
+    const camera_center_y = this.y + (this.height / 2)
 
     this.x += Math.floor(this.speed * GAME.dt * (this.target.x +this.target.width/2- camera_center_x))
     this.y += Math.floor(this.speed * GAME.dt * (this.target.y +this.target.height/2- camera_center_y))
