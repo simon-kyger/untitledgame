@@ -4,10 +4,10 @@ import entity from '../entity.js'
 export default GAME => {
     const k = GAME.entities.get('keyboard')
     const resolution = GAME.settings.resolution
-    const settings = entity(null, 
-        0, 0, 
-        resolution.width, resolution.height
-    )
+    const settings = entity()
+    settings.x = settings.y = 0
+    settings.width = resolution.width
+    settings.height = resolution.height
     settings.visible = false
     settings.debounce = Date.now()
     settings.debounce_threshold = 200

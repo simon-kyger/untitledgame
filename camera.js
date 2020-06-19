@@ -3,7 +3,11 @@ import entity from './entity.js'
 export default GAME => {
     const screen = GAME.entities.get('screen')
     const player = GAME.entities.get('player')
-    const e = entity(null, 0, 0, screen.image.width, screen.image.height)
+    const e = entity()
+    e.x = 0
+    e.y = 0
+    e.width = screen.image.width
+    e.height = screen.image.height
     e.add_component('follow_target', GAME)
     e.speed = 1
     e.last_delta_x = 0

@@ -1,17 +1,13 @@
-import * as components from './components/index.js'
-
-export default (image, x = 0, y = 0, width = 100, height = 100) => {
+import * as comp from './components/index.js'
+let id = -1
+export default () => {
     return {
-        image: image,
-        x: x,
-        y: y,
-        width: width,
-        height: height,
+        id: ++id,
         components: new Map,
         add_component: function(component){
-            if (typeof components[component] === 'undefined')
+            if (typeof comp[component] === 'undefined')
                 throw new Exception(`unknown component: ${component}`)
-            this.components.set(component, components[component].bind(this))
+            this.components.set(component, comp[component].bind(this))
         },
         remove_component: function(component){
             if (typeof this.components.get(component) === 'undefined'){

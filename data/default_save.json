@@ -10,7 +10,8 @@
             "controllable",
             "move_to",
             "clamp_to_stage",
-            "mouse_move"
+            "mouse_move",
+            "collidable"
         ]
     }
 }

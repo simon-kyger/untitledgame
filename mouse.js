@@ -2,12 +2,15 @@ import entity from './entity.js'
 import map from './map.js'
 
 export default GAME => {
-    const mouse = GAME.settings.controls.mouse
+    const mouse = entity()
+    Object.assign(mouse, GAME.settings.controls.mouse)
     const map = GAME.entities.get('map')
     const camera = GAME.entities.get('camera')
     const screen = GAME.entities.get('screen')
     const resolution = GAME.settings.resolution
     mouse.x = mouse.y = mouse.offsetX = mouse.offsetY = 0
+    mouse.width = mouse.height = 1
+    mouse.collidable = true
     mouse.set = function(key, newkey){
         if (Object.keys(this).filter(e => e == key).length)
             this[key] = newkey 
@@ -18,6 +21,7 @@ export default GAME => {
         const y = Math.floor(this.offsetY / screen.image.style_height * resolution.height + camera.y)
         this.x = x < 0 ? 0 : x > map.width ? map.width : x
         this.y = y < 0 ? 0 : y > map.height ? map.height : y
+        this.components.forEach(component => component(GAME))
     }
     mouse.render = function(){
         //console.log(this.x, this.y)

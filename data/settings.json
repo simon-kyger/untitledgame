@@ -40,6 +40,10 @@
             "settings": {
                 "key": "Escape",
                 "state": false
+            },
+            "rewind": {
+                "key": "r",
+                "state": false
             }
         }
     }

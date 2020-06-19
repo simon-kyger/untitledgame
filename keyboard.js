@@ -1,6 +1,7 @@
-
+import entity from './entity.js'
 export default GAME => {
-    const keyboard = GAME.settings.controls.keyboard
+    const keyboard = entity()
+    Object.assign(keyboard, GAME.settings.controls.keyboard)
     keyboard.set = function(key, newkey){
         if (Object.keys(this).filter(e => e == key).length)
             this[key] = newkey 
@@ -13,9 +14,6 @@ export default GAME => {
     window.addEventListener('keyup', e => {
         const key = Object.values(keyboard).filter(o => o.key == e.key)[0]
         if (key) key.state = false
-    })
-    window.addEventListener('blur', () => {
-        Object.values(keyboard).filter(o => o.state = false)
     })
     return keyboard
 }

@@ -1,15 +1,10 @@
 import entity from './entity.js'
 
 export default GAME => {
-    const player = entity(
-        null, 
-        GAME.data.player.x, 
-        GAME.data.player.y, 
-        GAME.data.player.width,
-        GAME.data.player.height
-    )
-    GAME.data.player.components.forEach(component=> player.add_component(component, GAME))
-    player.speed = GAME.data.player.speed
+    const player = GAME.data.player
+    const components = GAME.data.player.components
+    Object.assign(player, entity())
+    components.forEach(component=> player.add_component(component, GAME))
     player.set_destination = function(x, y) {
         x % 2 == 1 ? x++ : null
         y % 2 == 1 ? y++ : null
@@ -18,6 +13,7 @@ export default GAME => {
             y: y
         }
     }
+    player.collidable = true
     player.set_destination(player.x, player.y)
     player.render = function(ctx){
         ctx.fillStyle = 'red'

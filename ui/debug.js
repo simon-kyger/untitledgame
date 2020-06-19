@@ -7,7 +7,10 @@ export default GAME => {
     const camera = GAME.entities.get('camera')
     const mouse = GAME.entities.get('mouse')
     const screen = GAME.entities.get('screen')
-    const debug = entity(null, 0, 0, window.innerWidth, window.innerHeight)
+    const debug = entity()
+    debug.x = debug.y = 0
+    debug.width = window.innerWidth
+    debug.height = window.innerHeight
     debug.render = function(ctx){
         const fontsize = 12
         ctx.save()

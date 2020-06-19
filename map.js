@@ -31,6 +31,11 @@ export default GAME => {
             )
         })
     })
-    const e = entity(buffer, 0, 0, buffer.width, buffer.height)
+    const e = entity(1)
+    e.image = buffer
+    e.width = buffer.width
+    e.height = buffer.height
+    e.x = 0
+    e.y = 0
     return e
 }
